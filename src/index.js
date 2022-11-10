@@ -3,31 +3,27 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import state from "./redux/state";
-import {rerenderEntireTree} from "./render";
-
-rerenderEntireTree(state);
+import store from "./redux/state";
 
 
 
+const root = ReactDOM.createRoot(document.getElementById('root'))
 
-// const root = ReactDOM.createRoot(document.getElementById('root'))
+ let rerenderEntireTree = (state) => {
 
-//  let rerenderEntireTree = (state) => {
-
-//     ;
-//   root.render(
-//     <React.StrictMode>
+    ;
+  root.render(
+    <React.StrictMode>
   
-//       <App state={state} addPost={store.addPost.bind(store)} updatePostText={store.updateNewPostText.bind(store)} />
+      <App state={store.getState()} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} />
   
-//     </React.StrictMode>
-//   );
+    </React.StrictMode>
+  );
   
-//   }
-//   rerenderEntireTree(store.getState())
+  }
+  rerenderEntireTree(store.getState())
 
-//   store.subscribe(rerenderEntireTree);
+  store.subscribe(rerenderEntireTree);
 
 
 
