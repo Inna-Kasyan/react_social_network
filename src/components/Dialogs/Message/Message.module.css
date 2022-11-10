@@ -1,0 +1,14 @@
+.message{
+  width: 300px;
+  height: 60px;
+  background-color: turquoise;
+  line-height: 60px;
+  border-radius: 20px;
+  margin-top: 10px;
+
+}
+
+.right{
+  margin-left: auto;
+  margin-right: 10em;
+}
