@@ -3,27 +3,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import store from "./redux/state";
+import store from "./redux/redux-store";
+import { Provider } from 'react-redux';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
- let rerenderEntireTree = (state) => {
 
-    ;
-  root.render(
-    <React.StrictMode>
-  
-      <App state={store.getState()} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} />
-  
-    </React.StrictMode>
-  );
-  
-  }
-  rerenderEntireTree(store.getState())
+    root.render(
+        <Provider store={store}>
 
-  store.subscribe(rerenderEntireTree);
+            <App />
+
+        </Provider>
+    );
 
 
 
@@ -32,3 +26,4 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
