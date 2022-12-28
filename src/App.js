@@ -9,7 +9,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom'
 // import Friends from './components/Friends/Friends';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
-import ProfileContainer from './components/Profile/ProfileContiner';
+import ProfileContainer from './components/Profile/ProfileContainer';
 
 
 function App(props) {
@@ -22,7 +22,8 @@ function App(props) {
         <div className="app-wrapper-content">
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer />} />
-            <Route path='/profile/*' element={<ProfileContainer />} />
+            <Route path="/profile" element={<ProfileContainer isMain={true} />} />
+            <Route path="/profile/:userId" element={<ProfileContainer />} />
             <Route path='/users/*' element={<UsersContainer />} />
             {/* <Route path='/news/*' element={<News />} />
             <Route path='/music/*' element={<Music />} />
