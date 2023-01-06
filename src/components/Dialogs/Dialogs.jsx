@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom'
 import classes from './Dialogs.module.css'
 import Message from './Message/Message'
 import DialogItem from './DialogItem/DialogItem'
+import { Navigate } from 'react-router'
 
 
 
@@ -29,6 +30,8 @@ let state = props.dialogsPage;
         props.updateNewMessageBody(body);
        
     }
+
+    if (!props.isAuth) return <Navigate to="/login"/>;
 
     return (
         <div className={classes.dialogs}>
